@@ -1,0 +1,22 @@
+{
+  "name": "movie-manager",
+  "version": "1.0.0",
+  "description": "movie listing and managing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujithkumar216802/movie-manager.git"
+  },
+  "author": "S Sujith Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujithkumar216802/movie-manager/issues"
+  },
+  "homepage": "https://github.com/sujithkumar216802/movie-manager#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
