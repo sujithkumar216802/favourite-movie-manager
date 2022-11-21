@@ -2,7 +2,7 @@
   "name": "movie-manager",
   "version": "1.0.0",
   "description": "movie listing and managing",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
