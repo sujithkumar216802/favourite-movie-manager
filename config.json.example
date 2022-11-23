@@ -1,0 +1,6 @@
+{
+    "host": "<HOST_OF_DATABASE>",
+    "database": "<NAME_OF_DATABASE>",
+    "user": "<USERNAME_TO_ACCESS_THE_DATABASE>",
+    "password": "<PASSWORD_TO_ACCESS_THE_DATABASE>"
+}
