@@ -2,7 +2,7 @@ const Movie = require('../db/Movie');
 
 async function addMovie(req, res) {
     try {
-        await Movie.createMovie(req.body.movie_name, req.body.movie_cast, req.body.genre, req.body.release_date, req.body.rating, req.body.email);
+        await Movie.createMovie(req.body.movie_name, req.body.movie_cast, req.body.genre, req.body.release_date, req.body.rating, req.email);
         res.sendStatus(200);
     }
     catch (e) {
