@@ -1,4 +1,6 @@
-const User = require("../service/User");
+const User = require("../db/User");
+// const UserToken = require('../db/UserToken');
+const Authenticator = require('../utils/Authenticator');
 
 async function registerUser(req, res) {
     try {
@@ -32,7 +34,9 @@ async function loginUser(req, res) {
         if (exists) {
             const credentialsMatches = await checkCredentials(req.body.email, req.body.password);
             if (credentialsMatches) {
-                res.sendStatus(200);
+                const token = Authenticator.generateAccessToken(req.body.email);
+                // await UserToken.saveToken(req.body.email, token)
+                res.status(200).json(token);
             }
             else {
                 res.status(401).send('contains invalid credentials');
@@ -48,12 +52,15 @@ async function loginUser(req, res) {
     }
 }
 
-async function logoutUser(req, res) {
-
-}
+// async function logoutUser(req, res) {
+//     // const authHeader = req.headers['authorization'];
+//     // const token = authHeader && authHeader.split(' ')[1];
+//     // await UserToken.deleteToken(token);
+//     // res.sendStatus(200);
+// }
 
 module.exports = {
     registerUser: (req, res) => registerUser(req, res),
     loginUser: (req, res) => loginUser(req, res),
-    logoutUser: (req, res) => logoutUser(req, res)
+    // logoutUser: (req, res) => logoutUser(req, res)
 };

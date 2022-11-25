@@ -1,8 +1,8 @@
-const Movie = require('../service/Movie');
+const Movie = require('../db/Movie');
 
 async function addMovie(req, res) {
     try {
-        await Movie.createMovie(req.body.movie_name, req.body.movie_cast, req.body.genre, req.body.release_date, req.body.rating, req.body.user_id);
+        await Movie.createMovie(req.body.movie_name, req.body.movie_cast, req.body.genre, req.body.release_date, req.body.rating, req.body.email);
         res.sendStatus(200);
     }
     catch (e) {
@@ -35,8 +35,8 @@ async function updateMovie(req, res) {
 
 async function getAllMovies(req, res) {
     try {
-        await Movie.listOfAllMoviesByUserId(req.body.user_id);
-        res.sendStatus(200);
+        const { rows } = await Movie.listOfAllMoviesByUserEmail(req.email);
+        res.status(200).json(rows);
     }
     catch (e) {
         console.error('Error Occurred', e);
