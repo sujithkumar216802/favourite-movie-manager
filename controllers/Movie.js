@@ -6,7 +6,7 @@ async function addMovie(req, res) {
         res.sendStatus(200);
     }
     catch (e) {
-        console.error('Error Occurred', e);
+        console.error('Error Occurred While Adding a Movie', e);
         res.sendStatus(500);
     }
 }
@@ -17,7 +17,7 @@ async function deleteMovie(req, res) {
         res.sendStatus(200);
     }
     catch (e) {
-        console.error('Error Occurred', e);
+        console.error('Error Occurred While Deleting a Movie', e);
         res.sendStatus(500);
     }
 }
@@ -28,7 +28,7 @@ async function updateMovie(req, res) {
         res.sendStatus(200);
     }
     catch (e) {
-        console.error('Error Occurred', e);
+        console.error('Error Occurred While Updating a Movie', e);
         res.sendStatus(500);
     }
 }
@@ -39,7 +39,7 @@ async function getAllMovies(req, res) {
         res.status(200).json(rows);
     }
     catch (e) {
-        console.error('Error Occurred', e);
+        console.error('Error Occurred While Getting All Movies of a user', e);
         res.sendStatus(500);
     }
 }

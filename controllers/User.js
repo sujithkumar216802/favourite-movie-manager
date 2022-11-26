@@ -14,7 +14,7 @@ async function registerUser(req, res) {
         }
     }
     catch (e) {
-        console.error('Error Occurred', e);
+        console.error('Error Occurred While Registering a User', e);
         res.sendStatus(500);
     }
 }
@@ -47,7 +47,7 @@ async function loginUser(req, res) {
         }
     }
     catch (e) {
-        console.error('Error Occurred', e);
+        console.error('Error Occurred While Logging in a User', e);
         res.sendStatus(500);
     }
 }
