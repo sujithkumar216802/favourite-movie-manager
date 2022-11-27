@@ -8,13 +8,13 @@ const pool = new Pool({
     password: config.password
 });
 
-pool.on('error', () => {
-    console.log('db error');
+pool.on('error', (err) => {
+    console.error('Error Occured in DB', err);
     process.exit(-1);
 });
 
 pool.on('connect', () => {
-    console.log('db connected');
+    console.log('DB Connected');
 });
 
 module.exports = pool;

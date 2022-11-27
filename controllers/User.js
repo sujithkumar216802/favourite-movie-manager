@@ -6,7 +6,7 @@ async function registerUser(req, res) {
     try {
         const exists = await checkIfUserExists(req.body.email);
         if (exists) {
-            res.status(409).send('user already exists');
+            res.status(409).send('User Already Exists.');
         }
         else {
             await User.createUser(req.body.email, req.body.password);
@@ -36,18 +36,22 @@ async function loginUser(req, res) {
             if (credentialsMatches) {
                 const token = Authenticator.generateAccessToken(req.body.email);
                 // await UserToken.saveToken(req.body.email, token)
-                res.status(200).json(token);
+                res.cookie('token', token, {
+                    httpOnly: true,
+                    origin: 'http://localhost:5500',
+                });
+                res.sendStatus(200);
             }
             else {
-                res.status(401).send('contains invalid credentials');
+                res.status(401).send('Contains Invalid Credentials');
             }
         }
         else {
-            res.status(401).send('user does not exist');
+            res.status(401).send('User Does Not Exist');
         }
     }
     catch (e) {
-        console.error('Error Occurred While Logging in a User', e);
+        console.error('Error Occurred While Logging In a User', e);
         res.sendStatus(500);
     }
 }

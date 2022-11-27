@@ -12,6 +12,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:5500");
     res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Headers", "Content-Type");
+    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
     if ('OPTIONS' === req.method) {
         return res.sendStatus(200);
     }
