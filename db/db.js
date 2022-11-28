@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 const config = require('../config.json');
 
 const pool = new Pool({
-    host: config.host,
+    host: config.database_host,
     database: config.database,
     user: config.user,
     password: config.password

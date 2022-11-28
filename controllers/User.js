@@ -56,15 +56,13 @@ async function loginUser(req, res) {
     }
 }
 
-// async function logoutUser(req, res) {
-//     // const authHeader = req.headers['authorization'];
-//     // const token = authHeader && authHeader.split(' ')[1];
-//     // await UserToken.deleteToken(token);
-//     // res.sendStatus(200);
-// }
+async function logoutUser(req, res) {
+    res.clearCookie('token');
+    res.send(200);
+}
 
 module.exports = {
     registerUser: (req, res) => registerUser(req, res),
     loginUser: (req, res) => loginUser(req, res),
-    // logoutUser: (req, res) => logoutUser(req, res)
+    logoutUser: (req, res) => logoutUser(req, res)
 };

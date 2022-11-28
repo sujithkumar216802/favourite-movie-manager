@@ -3,5 +3,6 @@
     "database": "<NAME_OF_DATABASE>",
     "user": "<USERNAME_TO_ACCESS_THE_DATABASE>",
     "password": "<PASSWORD_TO_ACCESS_THE_DATABASE>",
-    "token_secret":"<SECRET_TOKEN_FOR_JWT_SIGNING>"
+    "token_secret":"<SECRET_TOKEN_FOR_JWT_SIGNING>",
+    "origin": "<FRONTEND_URL>"
 }

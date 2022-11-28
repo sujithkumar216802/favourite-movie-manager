@@ -35,7 +35,10 @@ async function updateMovie(req, res) {
 
 async function getAllMovies(req, res) {
     try {
-        const { rows } = await Movie.listOfAllMoviesByUserEmail(req.email);
+        var { rows } = await Movie.listOfAllMoviesByUserEmail(req.email);
+        for (var i = 0; i < rows.length; i++) {
+            rows[i]['release_date'] = (new Date(rows[i]['release_date'])).toLocaleString();
+        }
         res.status(200).json(rows);
     }
     catch (e) {
