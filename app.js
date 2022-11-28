@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
+const compression = require("compression");
+const helmet = require("helmet");
 const config = require('./config.json');
 const Authenticator = require('./utils/Authenticator');
 const homeRouter = require('./routes/Home');
@@ -9,6 +11,8 @@ const logoutRouter = require('./routes/Logout');
 const registerRouter = require('./routes/Register');
 const app = express();
 
+app.use(compression());
+app.use(helmet());
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", config.origin);
     res.header("Access-Control-Allow-Credentials", "true");
