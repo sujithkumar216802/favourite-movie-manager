@@ -38,6 +38,7 @@ async function loginUser(req, res) {
                 // await UserToken.saveToken(req.body.email, token)
                 res.cookie('token', token, {
                     httpOnly: true,
+                    sameSite: 'Strict',
                     origin: 'http://localhost:5500',
                 });
                 res.sendStatus(200);
