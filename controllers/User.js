@@ -1,6 +1,7 @@
 const User = require("../db/User");
 // const UserToken = require('../db/UserToken');
 const Authenticator = require('../utils/Authenticator');
+const config = require('../config.json');
 
 async function registerUser(req, res) {
     try {
@@ -39,7 +40,7 @@ async function loginUser(req, res) {
                 res.cookie('token', token, {
                     httpOnly: true,
                     sameSite: 'Strict',
-                    origin: 'http://localhost:5500',
+                    origin: config.origin,
                 });
                 res.sendStatus(200);
             }
